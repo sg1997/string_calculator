@@ -25,9 +25,23 @@ describe StringCalculator do
     end
   end
 
-  it "should return sum of numbers when \n added " do
-    expect(StringCalculator.add("1\n,2,3")).to eq(6)
-    expect(StringCalculator.add("1,\n")).to eq(1)
+  context "given different delimeters in a string of numbers" do
+    it "should return sum of numbers when \n added " do
+      expect(StringCalculator.add("1\n,2,3")).to eq(6)
+      expect(StringCalculator.add("1,\n")).to eq(1)
+    end
+
+    it "should return sum of integer numbers when different delimeter is given" do
+      expect(StringCalculator.add("//;\n1;2")).to eq(3)
+      expect(StringCalculator.add("//;2\n;32;4//")).to eq(38)
+    end
   end
+
+
+  it "should raise error if string contains negative number" do
+    expect{StringCalculator.add("1,2,-3")}.to raise_error('negative numbers not allowed in the string')
+    expect{StringCalculator.add("1\n,-2,3")}.to raise_error('negative numbers not allowed in the string')
+    expect{StringCalculator.add("//;-2\n;32;4//")}.to raise_error('negative numbers not allowed in the string')
+  end 
 
 end
