@@ -18,6 +18,16 @@ describe StringCalculator do
       expect(StringCalculator.add("1,2")).to eq(3)
       expect(StringCalculator.add("1,2,3,4,5,6,7,8,9,10")).to eq(55)
     end
+
+    it "should return the number itself when given a single number only" do
+      expect(StringCalculator.add('2')).to eq(2)
+      expect(StringCalculator.add('3')).to eq(3)
+    end
+  end
+
+  it "should return sum of numbers when \n added " do
+    expect(StringCalculator.add("1\n,2,3")).to eq(6)
+    expect(StringCalculator.add("1,\n")).to eq(1)
   end
 
 end
