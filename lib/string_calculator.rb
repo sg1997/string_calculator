@@ -7,7 +7,7 @@ class StringCalculator
 		any_negative_no = contains_negative_number(nos)		
 		raise 'negative numbers not allowed in the string' if any_negative_no
 
-		nos.sum
+		nos.inject(0){|sum,x| x <= 1000? sum + x : sum }
 	end
 
 	private

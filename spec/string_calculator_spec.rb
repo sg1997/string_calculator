@@ -35,6 +35,17 @@ describe StringCalculator do
       expect(StringCalculator.add("//;\n1;2")).to eq(3)
       expect(StringCalculator.add("//;2\n;32;4//")).to eq(38)
     end
+
+    it " should return sum of integers with multiple delimetes with length longer than one char" do
+      expect(StringCalculator.add("//[*][%]\n1*2%3")).to eq(6)
+      expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
+    end
+  end
+
+  it "should ignore numbers greater than 1000" do
+    expect(StringCalculator.add("1,1001")).to eq(1)
+    expect(StringCalculator.add("1\n,2,1001")).to eq(3)
+    expect(StringCalculator.add("//;2\n;32;1001//")).to eq(34)
   end
 
 
