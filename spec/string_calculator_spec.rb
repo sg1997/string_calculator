@@ -50,9 +50,9 @@ describe StringCalculator do
 
 
   it "should raise error if string contains negative number" do
-    expect{StringCalculator.add("1,2,-3")}.to raise_error('negative numbers not allowed in the string')
-    expect{StringCalculator.add("1\n,-2,3")}.to raise_error('negative numbers not allowed in the string')
-    expect{StringCalculator.add("//;-2\n;32;4//")}.to raise_error('negative numbers not allowed in the string')
+    expect{StringCalculator.add("1,2,-3")}.to raise_error('negatives not allowed')
+    expect{StringCalculator.add("1\n,-2,3")}.to raise_error('negatives not allowed')
+    expect{StringCalculator.add("//;-2\n;32;4//")}.to raise_error('negatives not allowed')
   end 
 
 end

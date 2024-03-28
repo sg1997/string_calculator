@@ -5,7 +5,7 @@ class StringCalculator
 		nos = numbers.split(/[^0-9-]+/)
 		nos = nos.map(&:to_i)
 		any_negative_no = contains_negative_number(nos)		
-		raise 'negative numbers not allowed in the string' if any_negative_no
+		raise 'negatives not allowed' if any_negative_no
 
 		nos.inject(0){|sum,x| x <= 1000? sum + x : sum }
 	end
